@@ -30,23 +30,28 @@ namespace Snake_And_Ladder_Problem
             while (playerPosition < WINNING_POSITION)
             {
                 int ROLL = random.Next(0, 3);
-                Console.WriteLine(ROLL);
+                //Console.WriteLine(ROLL);
                 switch (ROLL)
                 {
                     case 0:
+                        DiceRoll();
                         Console.WriteLine("No Play");
                         playerPosition += 0;
                         break;
                     case 1:
-                        Console.WriteLine("Ladder");
                         playerPosition += DiceRoll();
+                        Console.WriteLine("Ladder");
                         break;
                     case 2:
+                        playerPosition -= DiceRoll();
                         Console.WriteLine("Snake");
-                        playerPosition += DiceRoll();
+                        if(playerPosition < 0)
+                        {
+                            playerPosition = 0;
+                        }
                         break;
                 }
-                Console.WriteLine("You're at - "+playerPosition);
+                Console.WriteLine("You're New Position - "+playerPosition);
             }
         }
     }

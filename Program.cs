@@ -11,6 +11,7 @@
             dice.DiceRoll();
             Gameplay check = new Gameplay();
             check.Check();
+
         }
     }
 }
