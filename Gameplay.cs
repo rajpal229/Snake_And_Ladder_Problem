@@ -65,7 +65,8 @@ namespace Snake_And_Ladder_Problem
                 chance += 1;
                 Console.WriteLine("You're New Position - "+playerPosition);
             }
-            Console.WriteLine(chance);
+            Console.WriteLine("Count of Dice Played: "+chance);
+            Console.WriteLine("*****You have won the Game*****");
         }
     }
 }
