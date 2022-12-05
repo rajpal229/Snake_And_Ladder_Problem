@@ -7,6 +7,8 @@
             Console.WriteLine("Welcome to Snake and Ladder Problem");
             Gameplay playerPosition = new Gameplay();
             playerPosition.Position();
+            Gameplay dice = new Gameplay();
+            dice.DiceRoll();
         }
     }
 }
