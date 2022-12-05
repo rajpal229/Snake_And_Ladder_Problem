@@ -27,6 +27,8 @@ namespace Snake_And_Ladder_Problem
         }
         public void Check()
         {
+            int chance = 0;
+            int die = DiceRoll();
             while (playerPosition < WINNING_POSITION)
             {
                 int ROLL = random.Next(0, 3);
@@ -35,24 +37,35 @@ namespace Snake_And_Ladder_Problem
                 {
                     case 0:
                         DiceRoll();
-                        Console.WriteLine("No Play");
+                        Console.WriteLine("No Play: Stay on your position");
                         playerPosition += 0;
                         break;
                     case 1:
                         playerPosition += DiceRoll();
-                        Console.WriteLine("Ladder");
+                        if(playerPosition > WINNING_POSITION)
+                        {
+                            playerPosition -= DiceRoll();
+                            Console.WriteLine("No Play: Stay on your position");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ladder: Move Forward");
+                        }
                         break;
                     case 2:
                         playerPosition -= DiceRoll();
-                        Console.WriteLine("Snake");
+                        Console.WriteLine("Snake: Go Back");
                         if(playerPosition < 0)
                         {
                             playerPosition = 0;
                         }
                         break;
                 }
+                chance += 1;
                 Console.WriteLine("You're New Position - "+playerPosition);
             }
+            Console.WriteLine(chance);
         }
     }
 }
